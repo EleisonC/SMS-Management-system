@@ -1,18 +1,21 @@
-const express = require('express')
-const mongoose = require('mongoose');
-const {PORT,MLAB_URI} = process.env
-const bodyParser = require('body-parser');
-const morgan = require('morgan')
+const express = require("express")
+const app = express()
+const models = require("./models")
+const bodyParser = require("body-parser")
 
-const app = express();
-const db = mongoose.connect(MLAB_URI, { useNewUrlParser: true });
+const contactRouter = require("./routes/contactRoutes")
+const messageRouter = require("./routes/messageRoutes")
 
-app.use(morgan('combined'))
-app.use(bodyParser.json())
+app.use(bodyParser({json:true}))
+app.use('/contacts', contactRouter);
+app.use('/messages', messageRouter);
 
 
-app.listen(4000, () => {
-  console.log('Application running on port 4000...')
+let server;
+models.sequelize.sync({force:false}).then(()=>{
+   server = app.listen( 3000,()=>{
+        console.log("Api Is Running On Port ", 3000)
+    })
 })
 
 module.exports = app
