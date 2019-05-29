@@ -1,7 +1,6 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/SMS-Management-system
     docker: 
       - image: node:11.10.0
         environment:
