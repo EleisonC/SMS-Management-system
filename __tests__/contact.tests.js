@@ -18,10 +18,10 @@ describe('Test Contacts Endpoints', () => {
   beforeAll(async (done)=>{
           // await spawn('yarn', ['test:migrate'], spawnOptions);
       
-          execSync('yarn test:migrate', function(err, stdout, stderr) {
+          execSync('npm run test:migrate', function(err, stdout, stderr) {
               // console.log("stdout");
           });
-          execSync('yarn test:seed', function(err, stdout, stderr) {
+          execSync('npm run test:seed', function(err, stdout, stderr) {
               // console.log("stdout");
           });
             done()
