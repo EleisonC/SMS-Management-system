@@ -20,7 +20,7 @@ jobs:
     - checkout
     - run:
         name: Install dependencies
-        command: npm update && npm install && nodejs node_modules/node-sass/scripts/install.js && npm rebuild node-sass
+        command: npm update && npm install && npm rebuild node-sass
     - run:
         name: Run  tests
         command: NODE_ENV=test && npm run test:migrate && npm run test:coverage
