@@ -10,7 +10,6 @@ const {validateMessage,validateContact} = require("../src/utils/validation")
 const db = require("../src/models")
 describe('Test Contacts Endpoints', () => {
   beforeEach(() => {
-    jest.setTimeout(20000);
     res = {
                 json: sinon.spy(),
                 status: sinon.stub().returns({ end: sinon.spy() }) // to spy res.status(500).end()
@@ -53,12 +52,12 @@ describe('Test Contacts Endpoints', () => {
   //     },10000)
   // });
   });
-  it('should respond with 404 when searching for contact not existing',(done) => {
-      return request(app).get("/contacts/42").then(response => {
-          expect(response.statusCode).toBe(404)
-          done()
-      },10000)
-  });
+  // it('should respond with 404 when searching for contact not existing',(done) => {
+  //     return request(app).get("/contacts/42").then(response => {
+  //         expect(response.statusCode).toBe(404)
+  //         done()
+  //     },10000)
+  // });
   it('should respond with 404 when searching for contact not existing',(done) => {
       return request(app).get("/contacts/432").then(response => {
           expect(response.statusCode).toBe(404)
