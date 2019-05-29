@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/workspace/SMS-Management-system
+    working_directory: ~/workspace
     docker: 
       - image: node:11.10.0
         environment:
