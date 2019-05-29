@@ -38,13 +38,13 @@ describe('Test Contacts Endpoints', () => {
           //   })
             done()
           })
-  it('should respond with json containing all contacts ',(done) => {
-      return request(app).get("/contacts").then(response => {
-          expect(response.statusCode).toBe(200)
-          expect(Object.keys(response.body).length).toBe(0)
-          done()
-      },10000)
-  });
+  // it('should respond with json containing all contacts ',(done) => {
+  //     return request(app).get("/contacts").then(response => {
+  //         expect(response.statusCode).toBe(200)
+  //         expect(Object.keys(response.body).length).toBe(0)
+  //         done()
+  //     },10000)
+  // });
   it('should respond with 404 when searching for contact not existing',(done) => {
       return request(app).get("/contacts/32").then(response => {
           expect(response.statusCode).toBe(404)
