@@ -10,12 +10,13 @@ const {validateMessage,validateContact} = require("../src/utils/validation")
 const db = require("../src/models")
 describe('Test Contacts Endpoints', () => {
   beforeEach(() => {
+    jest.setTimeout(20000);
     res = {
                 json: sinon.spy(),
                 status: sinon.stub().returns({ end: sinon.spy() }) // to spy res.status(500).end()
             };
   });
-  beforeAll(async ()=>{
+  beforeAll(async (done)=>{
           // await spawn('yarn', ['test:migrate'], spawnOptions);
       
             // execSync('yarn test:migrate', function(err, stdout, stderr) {
@@ -24,7 +25,7 @@ describe('Test Contacts Endpoints', () => {
             // execSync('yarn test:seed', function(err, stdout, stderr) {
             //     // console.log("stdout");
             // });
-            
+            done()
   })
   afterAll(async (done) => {
             execSync('yarn test:seed:undo', function(err, stdout, stderr) {
