@@ -26,7 +26,7 @@ jobs:
         command: npm run test:coverage
     - run:
         name: Push Test coverage to Coveralls
-        command: - coveralls < coverage/lcov.info
+        command: coveralls < coverage/lcov.info
 workflows:
   version: 2
   build-deploy:
