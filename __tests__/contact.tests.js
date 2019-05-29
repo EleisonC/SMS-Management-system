@@ -18,15 +18,12 @@ describe('Test Contacts Endpoints', () => {
   beforeAll(async ()=>{
           // await spawn('yarn', ['test:migrate'], spawnOptions);
       
-            execSync('yarn test:migrate', function(err, stdout, stderr) {
-                // console.log("stdout");
-            });
-            execSync('yarn test:seed', function(err, stdout, stderr) {
-                // console.log("stdout");
-            });
-
-
-  
+            // execSync('yarn test:migrate', function(err, stdout, stderr) {
+            //     // console.log("stdout");
+            // });
+            // execSync('yarn test:seed', function(err, stdout, stderr) {
+            //     // console.log("stdout");
+            // });
             
   })
   afterAll(async (done) => {
