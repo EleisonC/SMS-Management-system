@@ -41,7 +41,7 @@ describe('Test Contacts Endpoints', () => {
   // it('should respond with json containing all contacts ',(done) => {
   //     return request(app).get("/contacts").then(response => {
   //         expect(response.statusCode).toBe(200)
-  //         expect(Object.keys(response.body).length).toBe(0)
+  //         expect(Object.keys(response.body).length).resolves.toBe(0)
   //         done()
   //     },10000)
   // });
