@@ -1,6 +1,7 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/workspace
     docker: 
       - image: node:11.10.0
         environment:
@@ -14,8 +15,7 @@ jobs:
           POSTGRES_USER: circleci
           POSTGRES_PASSWORD: 
           POSTGRES_DB: circle-test_test
-  working_directory: ~/workspace
-
+  
     steps:
     - checkout
     - run:
