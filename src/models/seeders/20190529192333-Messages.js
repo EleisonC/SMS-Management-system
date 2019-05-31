@@ -3,7 +3,7 @@ const faker = require("faker");
 const uuidv3 = require('uuid/v1');
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert(
+    return queryInterface.createTable(
       "Messages",
       [
         {

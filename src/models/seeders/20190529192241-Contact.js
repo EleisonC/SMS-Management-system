@@ -5,7 +5,7 @@ const uuidv3 = require('uuid/v1');
 console.log()
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert(
+    return queryInterface.createTable(
       "Contacts",
       [
         {
