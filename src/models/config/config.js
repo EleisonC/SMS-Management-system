@@ -5,7 +5,7 @@ module.exports = {
     username:DB_USERNAME,
     password: DB_PASSWORD,
     database: DB_NAME,
-    host: DB_HOST,
+    host: 'localhost',
     dialect: DB_DIALECT
   },
   test: {
