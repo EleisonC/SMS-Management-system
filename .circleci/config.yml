@@ -5,16 +5,16 @@ jobs:
     docker: 
       - image: node:11.10.0
         environment:
-          DB_USERNAME: root
+          DB_USERNAME: christopherkalule
           DB_DIALECT: "postgres"
-          TEST_DB_NAME: "circle-test_test"
+          DB_NAME: "sms-api"
           PORT: 9000
 
       - image: circleci/postgres:9.6.2-alpine
         environment:
-          POSTGRES_USER: root
+          POSTGRES_USER: christopherkalule
           POSTGRES_PASSWORD: 
-          POSTGRES_DB: circle-test_test
+          POSTGRES_DB: sms-api
   
     steps:
     - checkout

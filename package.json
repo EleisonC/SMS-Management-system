@@ -9,7 +9,7 @@
     "test:migrate": "npx sequelize db:migrate",
     "test:migrate:undo": "npx sequelize db:migrate:undo:all",
     "test:seed:undo": "npx sequelize db:seed:undo:all",
-    "test:coverage": "NODE_ENV=test npx jest --coverage  --forceExit"
+    "test:coverage": "npx jest --coverage  --forceExit"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
