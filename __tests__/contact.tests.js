@@ -60,7 +60,7 @@ describe('Test Contacts Endpoints', () => {
   // });
   it('should respond with 404 when searching for contact not existing',(done) => {
       return request(app).get("/contacts/432").then(response => {
-          expect(response.statusCode).resolves.toBe(404)
+          expect(response.statusCode).toBe(404)
           done()
       },10000)
   });
