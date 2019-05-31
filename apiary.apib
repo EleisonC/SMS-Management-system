@@ -1,0 +1,170 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# SMS Management System
+
+A system to manage messages
+
+## Get All Contacts [/contacts]
+
+### Get All Contacts [GET]
+
++ Request (aplication/json)
+
++ Response 201 (application/json)
+
+        []
+
+### Add a Contact [POST]
+
++ Request (application/json)
+
+        {
+        "name": "JamesBond",
+        "id": "12",
+        "phoneNumber": "070232133"
+        }
+
++ Response 201 (application/json)
+
+        {
+        "name": "JamesBond",
+        "id": 12,
+        "phoneNumber": "070232133",
+        "updatedAt": "2019-05-31T15:08:23.981Z",
+        "createdAt": "2019-05-31T15:08:23.981Z"
+        }
+
+## Get One Contacts [/contacts/{ID}]
+
+### Get One Contacts [GET]
+
++ Parameters
+    + ID(integer) - The ID to the contact you want
+
++ Response 201 (application/json)
+
+        {
+        "id": 12,
+        "name": "JamesBond",
+        "phoneNumber": "13",
+        "createdAt": "2019-05-31T15:29:42.425Z",
+        "updatedAt": "2019-05-31T15:29:42.425Z"
+        }
+
+
+### Delete a Contact [DELETE]
+
++ Parameters
+    + ID(integer) - the ID to the contact
+        
++ Response 200 (application/json)
+
+        {
+             "message": "successfully deleted"
+        }
+
+## Add Message [/messages]
+### Add a Message [POST]
+
++ Request (application/json)
+
+        {
+        "id":1,
+        "message": "I am coming for him",
+        "status": "read",
+        "senderId": 11,
+        "receiverId": 12
+        }
+
++ Response 201 (application/json)
+
+        {
+        "id": 1,
+        "message": "I am coming for him",
+        "status": "read",
+        "senderId": 11,
+        "receiverId": 12,
+        "updatedAt": "2019-05-31T16:12:28.486Z",
+        "createdAt": "2019-05-31T16:12:28.486Z"
+        }
+
+### Get All Messages [GET]
+
++ Request (aplication/json)
+
++ Response 201 (application/json)
+
+        []
+
+## Get A Message [/messages/{ID}]
+
+### Get A Message [GET]
+
++ Parameters
+    + ID(integer) - The ID to the message
+
++ Response 201 (application/json)
+
+        {
+        "id": 1,
+        "message": "I am coming for him",
+        "status": "read",
+        "senderId": 11,
+        "receiverId": 12,
+        "updatedAt": "2019-05-31T16:12:28.486Z",
+        "createdAt": "2019-05-31T16:12:28.486Z"
+        }
+
+### Get All Messages For A Specific User [GET]
+
++ Parameters
+    + ID(integer) - The ID to the specific contact
+
++ Response 201 (application/json)
+
+        [
+          {
+          "id": 1,
+          "message": "I am coming for him",
+          "status": "read",
+          "senderId": 11,
+          "receiverId": 12,
+          "updatedAt": "2019-05-31T16:12:28.486Z",
+          "createdAt": "2019-05-31T16:12:28.486Z"
+          }
+        ]
+
+## Get All Messages Sent To Specific User [/messages/{ID}]
+
+### Get All Messages Sent To A Specific User [GET]
+
++ Parameters
+    + ID(integer) - The ID to the specific contact sent to
+
++ Response 201 (application/json)
+
+        [
+          {
+          "id": 1,
+          "message": "I am coming for him",
+          "status": "read",
+          "senderId": 11,
+          "receiverId": 12,
+          "updatedAt": "2019-05-31T16:12:28.486Z",
+          "createdAt": "2019-05-31T16:12:28.486Z"
+          }
+        ]
+
+## Delete Message [/messages/{ID}]
+
+### Delete Message [DELETE]
+
++ Parameters
+    + ID(integer) - The ID of message to get deleted
+
++ Response 201 (application/json)
+
+        {
+             "message": "successfully deleted"
+        }
