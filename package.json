@@ -5,10 +5,10 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node  -r dotenv/config ./src/app.js ",
-    "test:seed": "NODE_ENV=test npx sequelize db:seed:all",
-    "test:migrate": "NODE_ENV=test npx sequelize db:migrate",
-    "test:migrate:undo": "NODE_ENV=test npx sequelize db:migrate:undo:all",
-    "test:seed:undo": "NODE_ENV=test npx sequelize db:seed:undo:all",
+    "test:seed": "npx sequelize db:seed:all",
+    "test:migrate": "npx sequelize db:migrate",
+    "test:migrate:undo": "npx sequelize db:migrate:undo:all",
+    "test:seed:undo": "npx sequelize db:seed:undo:all",
     "test:coverage": "NODE_ENV=test npx jest --coverage  --forceExit"
   },
   "dependencies": {
