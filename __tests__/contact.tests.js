@@ -14,6 +14,12 @@ describe('Test Contacts Endpoints', () => {
                 json: sinon.spy(),
                 status: sinon.stub().returns({ end: sinon.spy() }) // to spy res.status(500).end()
             };
+    execSync('npm run test:migrate', function(err, stdout, stderr) {
+      // console.log("stdout");
+  });
+  execSync('npm run test:seed', function(err, stdout, stderr) {
+      // console.log("stdout");
+  });
   });
   beforeAll(async ()=>{
           // await spawn('yarn', ['test:migrate'], spawnOptions);
@@ -57,18 +63,18 @@ describe('Test Contacts Endpoints', () => {
   //         done()
   //     },10000)
   // });
-  // it('should respond with 404 when searching for contact not existing',(done) => {
-  //     return request(app).get("/contacts/432").then(response => {
-  //         expect(response.statusCode).toBe(404)
-  //         done()
-  //     },10000)
-  // });
-  // it('should respond with 404 when deleting  contact not existing',(done) => {
-  //     return request(app).delete("/contacts/432").then(response => {
-  //         expect(response.statusCode).toBe(404)
-  //         done()
-  //     },10000)
-  // });
+  it('should respond with 404 when searching for contact not existing',(done) => {
+      return request(app).get("/contacts/432").then(response => {
+          expect(response.statusCode).toBe(404)
+          done()
+      },10000)
+  });
+  it('should respond with 404 when deleting  contact not existing',(done) => {
+      return request(app).delete("/contacts/432").then(response => {
+          expect(response.statusCode).toBe(404)
+          done()
+      },10000)
+  });
       let missingPhone = {
       "name": "dummy",
       id:19,
