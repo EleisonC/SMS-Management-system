@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/sms-management-system
     docker: 
       - image: node:11.10.0
-        # environment:
+        environment:
           DB_USERNAME: postgres
           DB_DIALECT: postgres
           DB_NAME: sms-api
