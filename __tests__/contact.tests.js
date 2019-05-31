@@ -26,7 +26,7 @@ describe('Test Contacts Endpoints', () => {
           });
   })
   afterAll(async (done) => {
-            execSync('yarn test:seed:undo', function(err, stdout, stderr) {
+            execSync('npm test:seed:undo', function(err, stdout, stderr) {
                 console.log(stdout);
                 
             });
