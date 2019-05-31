@@ -14,22 +14,17 @@ describe('Test Contacts Endpoints', () => {
                 json: sinon.spy(),
                 status: sinon.stub().returns({ end: sinon.spy() }) // to spy res.status(500).end()
             };
-    execSync('npm run test:migrate', function(err, stdout, stderr) {
-      // console.log("stdout");
-  });
-  execSync('npm run test:seed', function(err, stdout, stderr) {
-      // console.log("stdout");
-  });
+           
   });
   beforeAll(async ()=>{
           // await spawn('yarn', ['test:migrate'], spawnOptions);
       
-          execSync('npm run test:migrate', function(err, stdout, stderr) {
-              // console.log("stdout");
-          });
-          execSync('npm run test:seed', function(err, stdout, stderr) {
-              // console.log("stdout");
-          });
+          // execSync('npm run test:migrate', function(err, stdout, stderr) {
+          //     // console.log("stdout");
+          // });
+          // execSync('npm run test:seed', function(err, stdout, stderr) {
+          //     // console.log("stdout");
+          // });
   })
   afterAll(async (done) => {
             execSync('npm test:seed:undo', function(err, stdout, stderr) {
