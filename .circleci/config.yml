@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/sms-management-system
+    docker: 
+      - image: node:11.10.0
+        environment:
+          DB_USERNAME: postgres
+          DB_DIALECT: postgres
+          DB_NAME: sms-api
+          NODE_ENV: development
+
+      - image: circleci/postgres:9.6.2-alpine
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: sms-api
+          # DB_USERNAME: postgres
+          # DB_DIALECT: "postgres"
+          # DB_NAME: "sms-api"
+          # PORT: 9000
+  
+    steps:
+    - checkout
+    - run:
+        name: Install dependencies
+        command: npm update && npm install && npm rebuild node-sassc
+    - run:
+        name: Run  Migrations
+        command: npm run test:migrate
+    - run: 
+        name: Run Tests
+        command: npm run test:coverage
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+    
