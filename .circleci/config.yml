@@ -4,7 +4,7 @@ jobs:
     working_directory: ~/sms-management-system
     docker: 
       - image: node:11.10.0
-        environment:
+        # environment:
           # DB_USERNAME: postgres
           # DB_DIALECT: "postgres"
           # DB_NAME: "sms-api"
@@ -26,8 +26,11 @@ jobs:
         name: Install dependencies
         command: npm update && npm install && npm rebuild node-sassc
     - run:
-        name: Run  tests
-        command: npm run test:migrate && npm run test:coverage
+        name: Run  Migrations
+        command: npm run test:migrate
+    - run: 
+        name: Run Tests
+        command: npm run test:coverage
     - run:
         name: Push Test coverage to Coveralls
         command: coveralls < coverage/lcov.info
