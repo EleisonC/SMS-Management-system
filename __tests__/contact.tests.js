@@ -15,7 +15,7 @@ describe('Test Contacts Endpoints', () => {
                 status: sinon.stub().returns({ end: sinon.spy() }) // to spy res.status(500).end()
             };
   });
-  beforeAll(async (done)=>{
+  beforeAll(async ()=>{
           // await spawn('yarn', ['test:migrate'], spawnOptions);
       
           execSync('npm run test:migrate', function(err, stdout, stderr) {
@@ -24,7 +24,6 @@ describe('Test Contacts Endpoints', () => {
           execSync('npm run test:seed', function(err, stdout, stderr) {
               // console.log("stdout");
           });
-          done()
   })
   afterAll(async (done) => {
             execSync('yarn test:seed:undo', function(err, stdout, stderr) {
